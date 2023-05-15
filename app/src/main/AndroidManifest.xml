@@ -12,13 +12,33 @@
         android:theme="@style/Theme.YourWardrobe"
         tools:targetApi="31">
         <activity
+            android:name=".Calender"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".LaundryBasket"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".BriefCase"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".MarketPlace"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".OutfitMaker"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".AddNewCloth"
             android:exported="false"
-            android:parentActivityName=".Cloths"/>
+            android:parentActivityName=".YourCloset" />
         <activity
-            android:name=".Cloths"
+            android:name=".YourCloset"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -29,4 +49,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

@@ -1,3 +1,58 @@
 <resources>
     <string name="app_name">Your Wardrobe</string>
+
+    <string-array name="categories_array">
+        <item>"Select Category</item>
+        <item>"Tops"</item>
+        <item>"Bottoms"</item>
+        <item>"Jackets"</item>
+        <item>"Shoes"</item>
+        <item>"Accessories"</item>
+
+    </string-array>
+    <string-array name="tops_array">
+        <item>"Select Type of Top</item>
+        <item>"T-shirts"</item>
+        <item>"Blouses"</item>
+        <item>"Shirts"</item>
+        <item>"Kurta"</item>
+        <item>"Other"</item>
+    </string-array>
+    
+    <string-array name="bottoms_array">
+        <item>"Select Type of Bottom</item>
+        <item>"Jeans"</item>
+        <item>"Trousers"</item>
+        <item>"Leggings"</item>
+        <item>"Pajamas"</item>
+        <item>"Other"</item>
+    </string-array>
+    
+    <string-array name="jackets_array">
+        <item>"Select Type of Jacket</item>
+        <item>"Coats"</item>
+        <item>"Blazers"</item>
+        <item>"Sweaters"</item>
+        <item>"Hoodies"</item>
+        <item>"Other"</item>
+
+    </string-array>
+    <string-array name="shoes_array">
+        <item>"Select Type of Shoes</item>
+        <item>"Sneakers"</item>
+        <item>"Sandals"</item>
+        <item>"Flats"</item>
+        <item>"Heels"</item>
+        <item>"Other"</item>
+
+    </string-array>
+    <string-array name="accessories_array">
+        <item>"Select Type of Accessory</item>
+        <item>"Earings"</item>
+        <item>"Necklace "</item>
+        <item>"Sunglasses "</item>
+        <item>"Bags"</item>
+        <item>"Other Jewellery"</item>
+    </string-array>
+    
 </resources>
