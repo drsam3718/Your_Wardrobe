@@ -2,7 +2,17 @@
     <string name="app_name">Your Wardrobe</string>
 
     <string-array name="categories_array">
-        <item>"Select Category</item>
+        <item>"Select Category"</item>
+        <item>"Tops"</item>
+        <item>"Bottoms"</item>
+        <item>"Jackets"</item>
+        <item>"Shoes"</item>
+        <item>"Accessories"</item>
+
+    </string-array>
+
+    <string-array name="categories_array_for_sorting">
+        <item>"All Category"</item>
         <item>"Tops"</item>
         <item>"Bottoms"</item>
         <item>"Jackets"</item>

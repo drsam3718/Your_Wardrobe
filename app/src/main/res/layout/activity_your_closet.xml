@@ -7,16 +7,28 @@
     android:orientation="vertical"
     tools:context=".YourCloset">
 
-    <GridView
-        android:id="@+id/main_cloths_grid"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="3"
-        android:horizontalSpacing="6dp"
-        android:verticalSpacing="6dp"
-        app:useDefaultMargins="true">
+        android:orientation="vertical">
 
-    </GridView>
+        <Spinner
+            android:id="@+id/sort_by_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:padding="4dp"
+            style="@android:style/Widget.Spinner"/>
+
+        <GridView
+            android:id="@+id/main_cloths_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2"
+            android:horizontalSpacing="6dp"
+            android:verticalSpacing="6dp"
+            app:useDefaultMargins="true">
+        </GridView>
+    </LinearLayout>
 
     <Button
         android:id="@+id/add_cloth_button"
