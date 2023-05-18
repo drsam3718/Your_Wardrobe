@@ -15,13 +15,14 @@ import android.widget.Toast;
 
 import com.example.yourwardrobe.data.DbHandler;
 import com.example.yourwardrobe.model.Cloths;
+import com.example.yourwardrobe.model.Outfit;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class CreateOutfit extends AppCompatActivity {
 
-    MaterialButton pick_cover_button, select_top_button, select_bottom_button, select_jacket_button, select_shoes_button, select_accessories_button;
+    MaterialButton pick_cover_button, select_top_button, select_bottom_button, select_jacket_button, select_shoes_button, select_accessories_button, create_outfit_button;
     ImageView outfit_cover, top_image_view, bottom_image_view, jacket_image_view, shoes_image_view, accessories_image_view;
     Uri cover_uri;
     TextInputEditText outfit_name;
@@ -31,6 +32,7 @@ public class CreateOutfit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_outfit);
 
+        Intent intent = getIntent();
 
         outfit_cover = findViewById(R.id.outfit_cover);
         top_image_view = findViewById(R.id.top_image_view);
@@ -62,6 +64,30 @@ public class CreateOutfit extends AppCompatActivity {
         select_shoes_button.setOnClickListener(v -> startActivityForResult(select_shoes_intent, 28));
         select_accessories_button.setOnClickListener(v -> startActivityForResult(select_accessories_intent, 29));
 
+        create_outfit_button = findViewById(R.id.create_outfit_button);
+
+        create_outfit_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(outfit_name.getText().toString().equals("")){
+                    Toast.makeText(CreateOutfit.this, "Add name for your outfit atleast", Toast.LENGTH_SHORT).show();
+                }else{
+                    Outfit outfit = new Outfit();
+                    outfit.setOutfitName(outfit_name.getText().toString());
+                    if (cover_uri != null){
+                        outfit.setOutfitImagePath(cover_uri.getPath());
+                    }else{
+                        outfit.setOutfitImagePath(null);
+                    }
+                    outfit.setTopId(intent.getIntExtra(SelectTopForOutfit.TOP_ID, 0));
+                    outfit.setBottomId(intent.getIntExtra(SelectBottomForOutfit.BOTTOM_ID, 0));
+                    outfit.setJacketId(intent.getIntExtra(SelectJacketForOutfit.JACKET_ID, 0));
+                    outfit.setShoesId(intent.getIntExtra(SelectShoesForOutfit.SHOES_ID, 0));
+                    outfit.setAccessoriesId(intent.getIntExtra(SelectAccessoriesForOutfit.ACCESSORIES_ID, 0));
+                    db.addOutfit(outfit);
+                }
+            }
+        });
 
 
     }

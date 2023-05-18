@@ -102,7 +102,7 @@ public class DbHandler extends SQLiteOpenHelper {
         values.put(Params.KEY_OUTFIT_COVER_PATH, outfit.getOutfitImagePath());
 
         db.insert(Params.OUTFIT_TABLE, null, values);
-        Log.d("dbtest", "Successfully inserted!!!");
+        Log.d("dbtest", "Successfully inserted Outfit!!!");
         db.close();
     }
 

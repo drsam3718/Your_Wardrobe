@@ -3,7 +3,7 @@
     android:layout_width="160dp"
     android:layout_height="200dp">
     <ImageView
-        android:id="@+id/Accessory_image"
+        android:id="@+id/accessory_image"
         android:rotation="12"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
