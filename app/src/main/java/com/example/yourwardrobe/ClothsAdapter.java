@@ -33,11 +33,13 @@ public class ClothsAdapter extends ArrayAdapter<Cloths> {
         }
 
         Cloths cloth = getItem(position);
-        TextView courseTV = listitemView.findViewById(R.id.card_text);
-        ImageView courseIV = listitemView.findViewById(R.id.card_image);
+//        TextView cardId = listitemView.findViewById(R.id.cloth_id);
+        TextView cardSubcategory = listitemView.findViewById(R.id.card_text);
+        ImageView cardImage = listitemView.findViewById(R.id.card_image);
 
-        courseTV.setText(cloth.getSubcategory());
-        courseIV.setImageURI(Uri.parse(cloth.getPath()));
+//        cardId.setText(cloth.getId());
+        cardSubcategory.setText(cloth.getSubcategory());
+        cardImage.setImageURI(Uri.parse(cloth.getPath()));
         return listitemView;
     }
 }

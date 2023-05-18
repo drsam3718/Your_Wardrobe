@@ -34,7 +34,6 @@ public class AddNewCloth extends AppCompatActivity {
     Uri img_uri;
     MaterialButton pickImageButton, addClothButton;
     Spinner category, subcategory;
-//    AutoCompleteTextView autocategory, autosubcategory;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -42,16 +41,14 @@ public class AddNewCloth extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_cloth);
 
-        image_view = (ImageView)findViewById(R.id.image_view);
-        pickImageButton = (MaterialButton) findViewById(R.id.pick_image_button);
-        addClothButton = (MaterialButton) findViewById(R.id.add_cloth_button);
+        image_view = findViewById(R.id.image_view);
+        pickImageButton = findViewById(R.id.pick_image_button);
+        addClothButton = findViewById(R.id.add_cloth_button);
 
-        Intent your_closet_intent = new Intent(AddNewCloth.this.getBaseContext(), AddNewCloth.class);
-//        autocategory = (AutoCompleteTextView) findViewById(R.id.auto_category);
-//        autosubcategory = (AutoCompleteTextView) findViewById(R.id.auto_subcategory);
+        Intent your_closet_intent = new Intent(AddNewCloth.this.getBaseContext(), YourCloset.class);
 
-        category = (Spinner) findViewById(R.id.category);
-        subcategory = (Spinner) findViewById(R.id.subcategory);
+        category = findViewById(R.id.category);
+        subcategory = findViewById(R.id.subcategory);
 
         DbHandler db = new DbHandler(AddNewCloth.this);
 
@@ -70,16 +67,9 @@ public class AddNewCloth extends AppCompatActivity {
         ArrayAdapter<String> shoesadapter= new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, shoes_sub);
         ArrayList<String> accessories_sub = new ArrayList<>(asList(getResources().getStringArray(R.array.accessories_array)));
         ArrayAdapter<String> accessoriesadapter= new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, accessories_sub);
-        pickImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ImagePicker.with(AddNewCloth.this)
-                        .crop()	    			//Crop image(Optional), Check Customization for more option
-//                        .compress(1024)			//Final image size will be less than 1 MB(Optional)
-                        .maxResultSize(1080, 1350)	//Final image resolution will be less than 1080 x 1080(Optional)
-                        .start();
-            }
-        });
+        pickImageButton.setOnClickListener(v -> ImagePicker.with(AddNewCloth.this)
+                .crop()
+                .start());
 
         category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -107,15 +97,13 @@ public class AddNewCloth extends AppCompatActivity {
             }
         });
 
-        addClothButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (category.getSelectedItem().toString().equals("") || subcategory.getSelectedItem().toString().equals("Shoes") || img_uri.equals("")){
-                }else{
-                    Cloths cloth = new Cloths(category.getSelectedItem().toString(), subcategory.getSelectedItem().toString(), img_uri.toString());
-                    db.addCloths(cloth);
-                    startActivity(your_closet_intent);
-                }
+        addClothButton.setOnClickListener(v -> {
+            if (category.getSelectedItem().toString().equals("") || subcategory.getSelectedItem().toString().equals("") || img_uri.equals("")){
+                Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
+            }else{
+                Cloths cloth = new Cloths(category.getSelectedItem().toString(), subcategory.getSelectedItem().toString(), img_uri.toString());
+                db.addCloths(cloth);
+                startActivity(your_closet_intent);
             }
         });
     }

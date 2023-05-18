@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Intent your_closet_intent = new Intent(MainActivity.super.getBaseContext(), YourCloset.class);
-        Intent outfit_maker_intent = new Intent(MainActivity.super.getBaseContext(), OutfitMaker.class);
+        Intent outfit_maker_intent = new Intent(MainActivity.super.getBaseContext(), YourOutfits.class);
         Intent brief_case_intent = new Intent(MainActivity.super.getBaseContext(), BriefCase.class);
         Intent laundry_basket_intent = new Intent(MainActivity.super.getBaseContext(), LaundryBasket.class);
         Intent market_place_intent = new Intent(MainActivity.super.getBaseContext(), MarketPlace.class);

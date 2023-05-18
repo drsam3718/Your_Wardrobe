@@ -34,7 +34,7 @@ public class YourCloset extends AppCompatActivity {
 
         Spinner sort_by_spinner = (Spinner) findViewById(R.id.sort_by_spinner);
         ArrayList<String> categories = new ArrayList<>(asList(getResources().getStringArray(R.array.categories_array_for_sorting)));
-        ArrayAdapter<String> adapter1= new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, categories);
+        ArrayAdapter<String> adapter1= new ArrayAdapter<>(this, android.R.layout.simple_list_item_2, categories);
         sort_by_spinner.setAdapter(adapter1);
 
 
@@ -43,7 +43,7 @@ public class YourCloset extends AppCompatActivity {
 
         ArrayList<Cloths> clothsArrayList = new ArrayList<>();
 
-        List<Cloths> clothsList = db.getAllContact();
+        List<Cloths> clothsList = db.getAllCloths();
         for(Cloths cloths: clothsList){
             Log.d("dbtest", "ID : " + cloths.getId() + "\nSubcategory : " +cloths.getSubcategory() + "\nNumber : " + cloths.getPath()+ "\n");
             clothsArrayList.add(cloths);

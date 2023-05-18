@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class OutfitMaker extends AppCompatActivity {
+public class YourOutfits extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_outfit_maker);
+        setContentView(R.layout.activity_your_outfits);
     }
 }
