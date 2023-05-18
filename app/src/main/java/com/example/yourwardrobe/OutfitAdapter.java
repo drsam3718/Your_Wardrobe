@@ -36,12 +36,16 @@ public class OutfitAdapter extends ArrayAdapter<Outfit> {
         Outfit outfit = getItem(position);
         DbHandler db = new DbHandler(parent.getContext());
 
+        TextView outfit_name_text_view = listItemView.findViewById(R.id.outfit_name_text_view);
+
         ImageView outfit_cover = listItemView.findViewById(R.id.outfit_cover);
         ImageView top_image = listItemView.findViewById(R.id.top_image);
         ImageView bottom_image = listItemView.findViewById(R.id.bottom_image);
         ImageView jacket_image = listItemView.findViewById(R.id.jacket_image);
         ImageView shoes_image = listItemView.findViewById(R.id.shoes_image);
         ImageView accessory_image = listItemView.findViewById(R.id.accessory_image);
+
+        outfit_name_text_view.setText(outfit.getOutfitName());
 
         if(outfit.getOutfitImagePath() != null)
         {

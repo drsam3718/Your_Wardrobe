@@ -1,34 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="160dp"
-    android:layout_height="200dp">
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@drawable/green_green_gradient">
+    <ImageView
+        android:id="@+id/outfit_cover"
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
     <ImageView
         android:id="@+id/accessory_image"
         android:rotation="12"
+        android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
     <ImageView
         android:id="@+id/shoes_image"
         android:rotation="-15"
+        android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
     <ImageView
         android:id="@+id/jacket_image"
         android:rotation="36"
+        android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
     <ImageView
         android:id="@+id/bottom_image"
         android:rotation="-30"
+        android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
     <ImageView
         android:id="@+id/top_image"
         android:rotation="5"
+        android:background="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    <ImageView
-        android:id="@+id/outfit_cover"
+    <TextView
+        android:id="@+id/outfit_name_text_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/white_transparent_gradient"/>
 </RelativeLayout>
