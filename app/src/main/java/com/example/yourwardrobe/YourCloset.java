@@ -68,9 +68,10 @@ public class YourCloset extends AppCompatActivity {
                     mainClothsGrid.setAdapter(clothsAdapter);
                 }else{
                     clothsArrayListByCategory.clear();
-                    List<Cloths> clothsList = db.getByCategory(sort_by_spinner.getSelectedItem().toString());
-                    for(Cloths cloths: clothsList){
-                        clothsArrayListByCategory.add(cloths);
+                    for (Cloths cloths : clothsList) {
+                        if (cloths.getCategory().equals(sort_by_spinner.getSelectedItem().toString())){
+                            clothsArrayListByCategory.add(cloths);
+                        }
                     }
                     ClothsAdapter clothsAdapterByCategory = new ClothsAdapter(YourCloset.this, clothsArrayListByCategory);
                     mainClothsGrid.setAdapter(clothsAdapterByCategory);
