@@ -83,4 +83,23 @@ public class DbHandler extends SQLiteOpenHelper {
         }
         return clothsList;
     }
+    public List<Cloths> getByID(int id){
+        List<Cloths> clothsList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String select = "SELECT * FROM "+ Params.CLOTH_TABLE+ " WHERE "+ Params.KEY_ID+ "="+ "\"" +id+ "\"";
+        Cursor cursor = db.rawQuery(select, null);
+
+        if (cursor.moveToFirst()){
+            do {
+                Cloths cloths = new Cloths();
+                cloths.setId(Integer.parseInt(cursor.getString(0)));
+                cloths.setCategory(cursor.getString(1));
+                cloths.setSubcategory(cursor.getString(2));
+                cloths.setPath(cursor.getString(3));
+                clothsList.add(cloths);
+            }while (cursor.moveToNext());
+        }
+        return clothsList;
+    }
 }

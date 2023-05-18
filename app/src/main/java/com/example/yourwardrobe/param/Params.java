@@ -6,8 +6,8 @@ public class Params {
     public static final String CLOTH_TABLE = "cloths_table";
 
 
-    public static final String KEY_ID = "id";
+    public static final String KEY_ID = "cloth_id";
     public static final String KEY_CATEGORY = "category";
     public static final String KEY_SUBCATEGORY = "sub_category";
-    public static final String KEY_PATH = "path";
+    public static final String KEY_PATH = "cloth_image_path";
 }

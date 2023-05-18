@@ -46,7 +46,7 @@ public class AddNewCloth extends AppCompatActivity {
         pickImageButton = (MaterialButton) findViewById(R.id.pick_image_button);
         addClothButton = (MaterialButton) findViewById(R.id.add_cloth_button);
 
-        Intent your_closet_intent = new Intent(AddNewCloth.this.getBaseContext(), AddNewCloth.class);
+        Intent your_closet_intent = new Intent(AddNewCloth.this.getBaseContext(), YourCloset.class);
 //        autocategory = (AutoCompleteTextView) findViewById(R.id.auto_category);
 //        autosubcategory = (AutoCompleteTextView) findViewById(R.id.auto_subcategory);
 
@@ -70,16 +70,11 @@ public class AddNewCloth extends AppCompatActivity {
         ArrayAdapter<String> shoesadapter= new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, shoes_sub);
         ArrayList<String> accessories_sub = new ArrayList<>(asList(getResources().getStringArray(R.array.accessories_array)));
         ArrayAdapter<String> accessoriesadapter= new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, accessories_sub);
-        pickImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ImagePicker.with(AddNewCloth.this)
-                        .crop()	    			//Crop image(Optional), Check Customization for more option
+        pickImageButton.setOnClickListener(v -> ImagePicker.with(AddNewCloth.this)
+                .crop()	    			//Crop image(Optional), Check Customization for more option
 //                        .compress(1024)			//Final image size will be less than 1 MB(Optional)
-                        .maxResultSize(1080, 1350)	//Final image resolution will be less than 1080 x 1080(Optional)
-                        .start();
-            }
-        });
+//                        .maxResultSize(1080, 1350)	//Final image resolution will be less than 1080 x 1080(Optional)
+                .start());
 
         category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -110,7 +105,7 @@ public class AddNewCloth extends AppCompatActivity {
         addClothButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (category.getSelectedItem().toString().equals("") || subcategory.getSelectedItem().toString().equals("Shoes") || img_uri.equals("")){
+                if (category.getSelectedItem().toString().equals("") || subcategory.getSelectedItem().toString().equals("Shoes") || img_uri.toString().equals("")){
                 }else{
                     Cloths cloth = new Cloths(category.getSelectedItem().toString(), subcategory.getSelectedItem().toString(), img_uri.toString());
                     db.addCloths(cloth);

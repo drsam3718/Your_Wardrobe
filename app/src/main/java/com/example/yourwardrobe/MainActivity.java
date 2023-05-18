@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Intent your_closet_intent = new Intent(MainActivity.super.getBaseContext(), YourCloset.class);
-        Intent outfit_maker_intent = new Intent(MainActivity.super.getBaseContext(), OutfitMaker.class);
+        Intent outfit_maker_intent = new Intent(MainActivity.super.getBaseContext(), YourOutfits.class);
         Intent brief_case_intent = new Intent(MainActivity.super.getBaseContext(), BriefCase.class);
         Intent laundry_basket_intent = new Intent(MainActivity.super.getBaseContext(), LaundryBasket.class);
         Intent market_place_intent = new Intent(MainActivity.super.getBaseContext(), MarketPlace.class);
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setListeners(R.id.closet_button, your_closet_intent);
         setListeners(R.id.laundry_basket_button, laundry_basket_intent);
         setListeners(R.id.brief_case_button, brief_case_intent);
-        setListeners(R.id.outfit_maker_button, outfit_maker_intent);
+        setListeners(R.id.your_outfits_button, outfit_maker_intent);
         setListeners(R.id.calendar_button, calender_intent);
         setListeners(R.id.market_place_button, market_place_intent);
     }

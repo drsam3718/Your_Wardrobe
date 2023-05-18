@@ -12,6 +12,30 @@
         android:theme="@style/Theme.YourWardrobe"
         tools:targetApi="31">
         <activity
+            android:name=".SelectAccessoriesForOutfit"
+            android:exported="false"
+            android:parentActivityName=".CreateOutfit" />
+        <activity
+            android:name=".SelectShoesForOutfit"
+            android:exported="false"
+            android:parentActivityName=".CreateOutfit" />
+        <activity
+            android:name=".SelectJacketForOutfit"
+            android:exported="false"
+            android:parentActivityName=".CreateOutfit" />
+        <activity
+            android:name=".SelectBottomForOutfit"
+            android:exported="false"
+            android:parentActivityName=".CreateOutfit" />
+        <activity
+            android:name=".SelectTopForOutfit"
+            android:exported="false"
+            android:parentActivityName=".CreateOutfit" />
+        <activity
+            android:name=".CreateOutfit"
+            android:exported="false"
+            android:parentActivityName=".YourOutfits" />
+        <activity
             android:name=".Calender"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
@@ -28,7 +52,7 @@
             android:exported="false"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".OutfitMaker"
+            android:name=".YourOutfits"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
         <activity
