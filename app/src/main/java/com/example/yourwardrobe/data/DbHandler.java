@@ -133,7 +133,7 @@ public class DbHandler extends SQLiteOpenHelper {
         List<Cloths> clothsList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String select = "SELECT * FROM "+ Params.CLOTH_TABLE+ " WHERE "+ Params.KEY_CATEGORY+ "="+ category;
+        String select = "SELECT * FROM "+ Params.CLOTH_TABLE+ " WHERE "+ Params.KEY_CATEGORY+ "="+ "\""+category+"\"";
         Cursor cursor = db.rawQuery(select, null);
 
         if (cursor.moveToFirst()){
@@ -152,7 +152,7 @@ public class DbHandler extends SQLiteOpenHelper {
         List<Cloths> clothsList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String select = "SELECT * FROM "+ Params.CLOTH_TABLE+ " WHERE "+ Params.KEY_ID+ "="+ "\"" +id+ "\"";
+        String select = "SELECT * FROM "+ Params.CLOTH_TABLE+ " WHERE "+ Params.KEY_CLOTH_ID+ "="+ "\"" +id+ "\"";
         Cursor cursor = db.rawQuery(select, null);
 
         if (cursor.moveToFirst()){

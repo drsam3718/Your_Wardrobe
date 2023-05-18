@@ -34,7 +34,7 @@ public class YourCloset extends AppCompatActivity {
 
         Spinner sort_by_spinner = (Spinner) findViewById(R.id.sort_by_spinner);
         ArrayList<String> categories = new ArrayList<>(asList(getResources().getStringArray(R.array.categories_array_for_sorting)));
-        ArrayAdapter<String> adapter1= new ArrayAdapter<>(this, android.R.layout.simple_list_item_2, categories);
+        ArrayAdapter<String> adapter1= new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, categories);
         sort_by_spinner.setAdapter(adapter1);
 
 
@@ -58,7 +58,7 @@ public class YourCloset extends AppCompatActivity {
                 startActivity(add_cloth_intent);
             }
         });
-                ArrayList<Cloths> clothsArrayListByCategory = new ArrayList<>();
+        ArrayList<Cloths> clothsArrayListByCategory = new ArrayList<>();
 
         sort_by_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -68,10 +68,9 @@ public class YourCloset extends AppCompatActivity {
                     mainClothsGrid.setAdapter(clothsAdapter);
                 }else{
                     clothsArrayListByCategory.clear();
-                    for (Cloths cloths : clothsList) {
-                        if (cloths.getCategory().equals(sort_by_spinner.getSelectedItem().toString())){
-                            clothsArrayListByCategory.add(cloths);
-                        }
+                    List<Cloths> clothsList = db.getByCategory(sort_by_spinner.getSelectedItem().toString());
+                    for(Cloths cloths: clothsList){
+                        clothsArrayListByCategory.add(cloths);
                     }
                     ClothsAdapter clothsAdapterByCategory = new ClothsAdapter(YourCloset.this, clothsArrayListByCategory);
                     mainClothsGrid.setAdapter(clothsAdapterByCategory);

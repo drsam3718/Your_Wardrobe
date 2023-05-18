@@ -26,18 +26,18 @@ public class ClothsAdapter extends ArrayAdapter<Cloths> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        View listItemView = convertView;
-        if (listItemView == null) {
+        View listitemView = convertView;
+        if (listitemView == null) {
             // Layout Inflater inflates each item to be displayed in GridView.
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.cloth_card_item, parent, false);
+            listitemView = LayoutInflater.from(getContext()).inflate(R.layout.cloth_card_item, parent, false);
         }
 
         Cloths cloth = getItem(position);
-        TextView courseTV = listItemView.findViewById(R.id.card_text);
-        ImageView courseIV = listItemView.findViewById(R.id.card_image);
+        TextView courseTV = listitemView.findViewById(R.id.card_text);
+        ImageView courseIV = listitemView.findViewById(R.id.card_image);
 
         courseTV.setText(cloth.getSubcategory());
         courseIV.setImageURI(Uri.parse(cloth.getPath()));
-        return listItemView;
+        return listitemView;
     }
 }

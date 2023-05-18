@@ -48,9 +48,7 @@ public class CreateOutfit extends AppCompatActivity {
         outfit_name = findViewById(R.id.outfit_name);
         pick_cover_button = findViewById(R.id.pick_cover_button);
         pick_cover_button.setOnClickListener(v -> ImagePicker.with(CreateOutfit.this)
-                .crop()	    			//Crop image(Optional), Check Customization for more option
-//                        .compress(1024)			//Final image size will be less than 1 MB(Optional)
-//                        .maxResultSize(1080, 1350)	//Final image resolution will be less than 1080 x 1080(Optional)
+                .crop()
                 .start());
 
         select_top_button = findViewById(R.id.select_top_button);
