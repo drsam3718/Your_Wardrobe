@@ -43,28 +43,30 @@ public class OutfitAdapter extends ArrayAdapter<Outfit> {
         ImageView bottom_image = listItemView.findViewById(R.id.bottom_image);
         ImageView jacket_image = listItemView.findViewById(R.id.jacket_image);
         ImageView shoes_image = listItemView.findViewById(R.id.shoes_image);
-        ImageView accessory_image = listItemView.findViewById(R.id.accessory_image);
 
         outfit_name_text_view.setText(outfit.getOutfitName());
 
         if(outfit.getOutfitImagePath() != null)
         {
             outfit_cover.setImageURI(Uri.parse(outfit.getOutfitImagePath()));
+        }else{
+            outfit_cover.setVisibility(View.INVISIBLE);
         }
         if(outfit.getTopId() != 0){
-            top_image.setImageURI(Uri.parse(db.getByID(outfit.getTopId()).toString()));
+//            top_image.setImageURI(Uri.parse(db.getByID(outfit.getTopId()).toString()));
+            top_image.setImageURI(Uri.parse(db.getByID(outfit.getTopId()).get(0).getPath()));
         }
         if(outfit.getBottomId() != 0){
-            bottom_image.setImageURI(Uri.parse(db.getByID(outfit.getBottomId()).toString()));
+//            bottom_image.setImageURI(Uri.parse(db.getByID(outfit.getBottomId()).toString()));
+            bottom_image.setImageURI(Uri.parse(db.getByID(outfit.getBottomId()).get(0).getPath()));
         }
         if(outfit.getJacketId() != 0){
-            jacket_image.setImageURI(Uri.parse(db.getByID(outfit.getJacketId()).toString()));
+//            jacket_image.setImageURI(Uri.parse(db.getByID(outfit.getJacketId()).toString()));
+            jacket_image.setImageURI(Uri.parse(db.getByID(outfit.getJacketId()).get(0).getPath()));
         }
         if(outfit.getShoesId() != 0){
-            shoes_image.setImageURI(Uri.parse(db.getByID(outfit.getShoesId()).toString()));
-        }
-        if(outfit.getAccessoriesId() != 0){
-            accessory_image.setImageURI(Uri.parse(db.getByID(outfit.getAccessoriesId()).toString()));
+//            shoes_image.setImageURI(Uri.parse(db.getByID(outfit.getShoesId()).toString()));
+            shoes_image.setImageURI(Uri.parse(db.getByID(outfit.getShoesId()).get(0).getPath()));
         }
 
         return listItemView;
